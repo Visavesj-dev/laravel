@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
+
+// load model
 use DB;
 
 // request from form
@@ -77,9 +80,22 @@ class BasicController extends Controller
 
         // $emp = DB::table('employees')->insert($data_emp);
 
-        $emp = DB::table('employees')->get();
+        // $emp = DB::table('employees')->get();
         // print_r($emp);
 
-        return view('pages.employee')->with('emps',$emp);
+        $emp = DB::table('employees')->paginate(2);
+
+        return view('pages.employee')->with('emps', $emp);
+    }
+
+    public function employeelist()
+    {
+        // อ่านข้อมูลทั้งหมด
+        // $employees = Employee::all();
+        // print_r($employees);
+
+        $employees = Employee::paginate(2);
+        return view('pages.employeelist')->with('employeeList', $employees);
+
     }
 }

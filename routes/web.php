@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BasicController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +35,9 @@ Route::get('contact', [BasicController::class, 'contact']);
 
 // Call Employee
 Route::get('employees', [BasicController::class, 'employees']);
+
+// Read employee with eloquent
+Route::get('employeelist', [BasicController::class, 'employeelist']);
+
+/** Read Employee wtih DeptManager */
+Route::get('view_deptmanager', [EmployeeController::class, 'view_deptmanager']);

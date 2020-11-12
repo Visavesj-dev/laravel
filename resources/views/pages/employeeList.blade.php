@@ -21,9 +21,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($emps as $em)
+                @foreach ($employeeList as $key => $em)
                     <tr>
-                        <td>{{ $em->id }}</td>
+                        <td>{{ $employeeList->firstItem() + $key }}</td>
                         <td>{{ $em->fullname }}</td>
                         <td>{{ $em->gender }}</td>
                         <td>{{ $em->email }}</td>
@@ -35,7 +35,7 @@
 
             </tbody>
         </table>
-        {{ $emps->links() }}
+        <p class="text-right">{{ $employeeList->links() }}</p>
     </div>
 
 @endsection
